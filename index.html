@@ -3,53 +3,226 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Google Drive</title> <!-- Changes the tab name to look like Google Drive -->
-    <link rel="icon" type="image/x-icon" href="https://gstatic.com"> <!-- Sets Drive icon -->
+    <title>Google Drive</title> <!-- Tab name disguise -->
+    <link rel="icon" type="image/x-icon" href="https://gstatic.com">
+    
     <style>
+        /* Google Sites Material Design Variables */
+        :root {
+            --bg-color: #121212;
+            --nav-color: #1f1f1f;
+            --accent-color: #3c4043;
+            --text-color: #ffffff;
+            --card-bg: #2d2e31;
+            --button-blue: #8ab4f8;
+        }
+
         body {
             margin: 0;
             padding: 0;
-            background-color: #121212;
-            font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            color: white;
+            background-color: var(--bg-color);
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            color: var(--text-color);
         }
-        .launch-btn {
-            background-color: #2ea44f;
-            color: white;
-            border: none;
-            padding: 15px 40px;
-            font-size: 18px;
-            font-weight: bold;
-            border-radius: 6px;
-            cursor: pointer;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+
+        /* Top Navigation Bar (Just like Google Sites) */
+        .navbar {
+            background-color: var(--nav-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 50px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+        }
+
+        .nav-logo {
+            font-size: 22px;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-links a {
+            color: var(--text-color);
+            text-decoration: none;
+            margin-left: 20px;
+            font-size: 15px;
+            opacity: 0.85;
             transition: 0.2s;
         }
-        .launch-btn:hover {
-            background-color: #2c974b;
-            transform: scale(1.05);
+
+        .nav-links a:hover, .nav-links a.active {
+            opacity: 1;
+            border-bottom: 2px solid var(--button-blue);
+            padding-bottom: 5px;
+        }
+
+        /* Large Google Sites Banner Section */
+        .banner {
+            background: linear-gradient(135px, #2c3e50, #000000);
+            height: 220px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border-bottom: 1px solid var(--accent-color);
+            text-align: center;
+        }
+
+        .banner h1 {
+            margin: 0;
+            font-size: 42px;
+            font-weight: 400;
+        }
+
+        .banner p {
+            margin-top: 10px;
+            font-size: 16px;
+            opacity: 0.7;
+        }
+
+        /* Content Container */
+        .main-container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            font-size: 24px;
+            font-weight: 400;
+            margin-bottom: 20px;
+            border-bottom: 1px solid var(--accent-color);
+            padding-bottom: 10px;
+        }
+
+        /* Game Card Layout Grid */
+        .grid-layout {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 25px;
+        }
+
+        /* Clean Google-style Grid Cards */
+        .game-card {
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid var(--accent-color);
+            transition: transform 0.2s, box-shadow 0.2s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .game-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+        }
+
+        .card-img {
+            width: 100%;
+            height: 150px;
+            background-color: #1a1a1c;
+            object-fit: cover;
+        }
+
+        .card-info {
+            padding: 15px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .card-title {
+            margin: 0 0 10px 0;
+            font-size: 18px;
+            font-weight: 500;
+        }
+
+        .card-btn {
+            background-color: transparent;
+            color: var(--button-blue);
+            border: 1px solid var(--button-blue);
+            padding: 8px 0;
+            text-align: center;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: 0.2s;
+            width: 100%;
+        }
+
+        .card-btn:hover {
+            background-color: rgba(138, 180, 248, 0.1);
         }
     </style>
 </head>
 <body>
 
-    <button class="launch-btn" onclick="launchBlank()">Open Dashboard</button>
+    <!-- Navigation Hub Bar -->
+    <nav class="navbar">
+        <div class="nav-logo">NJ Games V2</div>
+        <div class="nav-links">
+            <a href="#" class="active">Home</a>
+            <a href="#">Proxy</a>
+            <a href="#">About</a>
+        </div>
+    </nav>
 
+    <!-- Main Header Banner -->
+    <header class="banner">
+        <h1>NJ Games V2 Portal</h1>
+        <p>Select a game below to launch it inside an isolated, unblocked context.</p>
+    </header>
+
+    <!-- Games Presentation Area -->
+    <main class="main-container">
+        <div class="section-title">Popular Games</div>
+        
+        <div class="grid-layout">
+
+            <!-- GAME CARD 1 -->
+            <div class="game-card">
+                <img class="card-img" src="https://unsplash.com" alt="Game Thumbnail">
+                <div class="card-info">
+                    <h3 class="card-title">Slope</h3>
+                    <button class="card-btn" onclick="launchGame('https://example.com')">Play Cloaked</button>
+                </div>
+            </div>
+
+            <!-- GAME CARD 2 -->
+            <div class="game-card">
+                <img class="card-img" src="https://unsplash.com" alt="Game Thumbnail">
+                <div class="card-info">
+                    <h3 class="card-title">Retro Bowl</h3>
+                    <button class="card-btn" onclick="launchGame('https://example.com')">Play Cloaked</button>
+                </div>
+            </div>
+
+            <!-- GAME CARD 3 -->
+            <div class="game-card">
+                <img class="card-img" src="https://unsplash.com" alt="Game Thumbnail">
+                <div class="card-info">
+                    <h3 class="card-title">1v1.LOL</h3>
+                    <button class="card-btn" onclick="launchGame('https://example.com')">Play Cloaked</button>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Core JavaScript Cloaking Logic -->
     <script>
-    function launchBlank() {
-        // 1. Open a fresh tab with an empty history context
+    function launchGame(targetUrl) {
+        // 1. Spawns the clean browser tab instance
         var win = window.open('about:blank', '_blank');
         
         if (!win || win.closed) {
-            alert('Pop-up blocked! Please allow pop-ups for this site to open the page.');
+            alert('Pop-up Blocked! Please click the icon in your address bar to allow pop-ups.');
             return;
         }
 
-        // 2. Build the fullscreen game window
+        // 2. Builds the frame configuration inside the tab
         var iframe = win.document.createElement('iframe');
         iframe.style.width = "100vw";
         iframe.style.height = "100vh";
@@ -59,15 +232,13 @@
         iframe.style.left = "0";
         iframe.style.margin = "0";
         iframe.style.padding = "0";
-        
-        // Points to your actual Google Site
-        iframe.src = "https://google.com"; 
+        iframe.src = targetUrl; 
 
-        // 3. Inject into the blank document
+        // 3. Mounts the execution frame
         win.document.body.style.margin = "0";
         win.document.body.appendChild(iframe);
         
-        // 4. Force browser tab masking in the blank frame
+        // 4. Applies continuous camouflage masking
         win.document.title = "Google Drive";
         var link = win.document.createElement('link');
         link.rel = 'icon';
